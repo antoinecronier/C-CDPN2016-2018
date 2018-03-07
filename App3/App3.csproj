@@ -101,11 +101,17 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\ProductInputUserControl.xaml.cs">
+      <DependentUpon>ProductInputUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ProductUserControl.xaml.cs">
       <DependentUpon>ProductUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\StackPanelUserControl.xaml.cs">
       <DependentUpon>StackPanelUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserInputUserControl.xaml.cs">
+      <DependentUpon>UserInputUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UserUserControl.xaml.cs">
       <DependentUpon>UserUserControl.xaml</DependentUpon>
@@ -139,6 +145,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UserControls\ProductInputUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserControls\ProductUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -146,6 +156,10 @@
     <Page Include="UserControls\StackPanelUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UserInputUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\UserUserControl.xaml">
       <SubType>Designer</SubType>

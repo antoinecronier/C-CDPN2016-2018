@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary3.Models.Bases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1.Models
 {
-    public class Product
+    public class Product : PropertyChangeEntity
     {
         #region StaticVariables
         #endregion
@@ -27,19 +28,28 @@ namespace ClassLibrary1.Models
         public String Name
         {
             get { return name; }
-            set { name = value; }
+            set {
+                name = value;
+                OnPropertyChanged("Name");
+            }
         }
 
         public double Price
         {
             get { return price; }
-            set { price = value; }
+            set {
+                price = value;
+                OnPropertyChanged("Price");
+            }
         }
 
         public int Quantity
         {
             get { return quantity; }
-            set { quantity = value; }
+            set {
+                quantity = value;
+                OnPropertyChanged("Quantity");
+            }
         }
         #endregion
 

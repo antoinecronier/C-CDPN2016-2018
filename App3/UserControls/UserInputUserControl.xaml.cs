@@ -1,7 +1,6 @@
 ﻿using ClassLibrary1.Models;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -21,9 +20,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace App3.UserControls
 {
-    public sealed partial class UserUserControl : UserControl
+    public sealed partial class UserInputUserControl : UserControl
     {
-        private User user;
+        private User user = new User();
 
         public User User
         {
@@ -31,38 +30,24 @@ namespace App3.UserControls
             set { user = value; }
         }
 
-        public UserUserControl()
-        {
-            User = new User
-            {
-                Firstname = "testFirstname",
-                Lastname = "testLastname",
-                Sold = 1000,
-                Bag = new ObservableCollection<Product>()
-                {
-                    new Product
-                    {
-                        Name = "product1",
-                        Price = 5,
-                        Quantity = 1
-                    },
-                    new Product
-                    {
-                        Name = "product2",
-                        Price = 50,
-                        Quantity = 10
-                    },new Product
-                    {
-                        Name = "product3",
-                        Price = 5.6,
-                        Quantity = 4
-                    }
-                }
-            };
+        private Product product = new Product();
 
+        public Product Product
+        {
+            get { return product; }
+            set { product = value; }
+        }
+
+
+        public UserInputUserControl()
+        {
             this.InitializeComponent();
             this.DataContext = User;
+            //this.UCProductInput.DataContext = Product;
 
+            this.saveBtn.Tapped += SaveBtn_Tapped;
+            this.UCProductInput.SaveBtn.Tapped += SaveBtn_Tapped1;
+            #region Test
             //Task.Factory.StartNew(()=>
             //{
             //    int a = 0;
@@ -78,6 +63,23 @@ namespace App3.UserControls
             //        a++;
             //    }
             //});
+            #endregion
+
+        }
+
+        private void SaveBtn_Tapped1(object sender, TappedRoutedEventArgs e)
+        {
+            //User.Bag.Add(Product);
+            User.Bag.Add(new Product
+            {
+                Name = this.UCProductInput.Product.Name,
+                Price = this.UCProductInput.Product.Price,
+                Quantity = this.UCProductInput.Product.Quantity
+            });
+        }
+
+        private void SaveBtn_Tapped(object sender, TappedRoutedEventArgs e)
+        {
         }
     }
 }

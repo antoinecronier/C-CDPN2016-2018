@@ -13,7 +13,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
-                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -24,6 +25,10 @@
                                    Grid.Row="0" Grid.Column="0"/>
             <UC:UserUserControl x:Name="UCuser"
                                 Grid.Row="1" Grid.Column="0"/>
+            <UC:ProductInputUserControl x:Name="UCProductInput"
+                                        Grid.Row="2" Grid.ColumnSpan="2"/>
+            <UC:UserInputUserControl x:Name="UCUserInput"
+                                        Grid.Row="3" Grid.ColumnSpan="2"/>
             <Button x:Name="btn" Content="Navigate"
                     Grid.Row="20"/>
         </Grid>
