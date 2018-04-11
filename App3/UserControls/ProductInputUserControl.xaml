@@ -20,7 +20,8 @@
         </Grid.RowDefinitions>
         <TextBlock x:Name="nameLBL" Text="Name:"
                    Grid.Column="0" Grid.Row="0"/>
-        <TextBox x:Name="nameTXTB" PlaceholderText="Name" Text="{Binding Name, Mode=TwoWay}"
+        <TextBox x:Name="nameTXTB" PlaceholderText="Name" Text="{Binding RelativeSource={RelativeSource 
+                            Mode=TemplatedParent}, Path=ProductNameTextBoxProperty}"
                    Grid.Column="1" Grid.Row="0"/>
         <TextBlock x:Name="priceLBL" Text="Price:"
                    Grid.Column="0" Grid.Row="1"/>

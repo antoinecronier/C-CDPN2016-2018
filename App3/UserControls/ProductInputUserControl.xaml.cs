@@ -20,6 +20,31 @@ namespace App3.UserControls
 {
     public sealed partial class ProductInputUserControl : UserControl
     {
+        #region DependencyProperties
+        /* => XAML
+         {Binding RelativeSource={RelativeSource 
+                            Mode=Self}, Path=ProductNameTextBoxProperty}
+             */
+        public static readonly DependencyProperty ProductNameTextBoxProperty =
+                    DependencyProperty.Register
+                    (
+                        "ProductNameTextBoxProperty", typeof(string), typeof(TextBox),
+                        new PropertyMetadata("ProductNameTextBoxProperty")
+                    );
+
+        public String Name
+        {
+            get
+            {
+                return (string)GetValue(ProductNameTextBoxProperty);
+            }
+            set
+            {
+                SetValue(ProductNameTextBoxProperty, value);
+            }
+        }
+        #endregion
+
         private Product product = new Product();
 
         public Product Product
@@ -37,7 +62,15 @@ namespace App3.UserControls
         public ProductInputUserControl()
         {
             this.InitializeComponent();
-            this.DataContext = Product;
+            //this.DataContext = Product;
+            this.DataContext = this;
+            Product = new Product
+            {
+                Name = "nameTest"
+            };
+
+            this.Name = Product.Name;
+
             this.saveBtn.Tapped += SaveBtn_Tapped;
         }
 

@@ -1,6 +1,8 @@
 ﻿using ClassLibrary3.Models.Bases;
+using SQLite;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,12 +21,21 @@ namespace ClassLibrary1.Models
         #endregion
 
         #region Attributs
+        private int id;
         private String name;
         private double price;
         private int quantity;
+        private int userId;
         #endregion
 
         #region Properties
+        [Key]
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
         public String Name
         {
             get { return name; }

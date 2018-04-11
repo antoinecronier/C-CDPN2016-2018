@@ -1,9 +1,11 @@
 ﻿using App3.Views;
+using ClassLibrary3.Database;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -26,6 +28,13 @@ namespace App3
         public MainPage()
         {
             this.InitializeComponent();
+
+
+            Task.Factory.StartNew(() =>
+            {
+                SQLiteOpenHelper helper = new SQLiteOpenHelper();
+                helper.GetWritableDatabase();
+            });
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
